@@ -1,7 +1,24 @@
-#include "baseConverter.h"
+﻿#include "baseConverter.h"
+
+float baseConverter::mod(float n, int m)
+{
+    int temp = (int)n / m;
+    return n - temp*m;
+   
+}
+
+int baseConverter::isRealNumber()
+{
+    int i;
+    for ( i = 0; i < input.length(); i++) {
+        if (input[i] == '.') break;
+    }
+     return i;
+}
 
 bool baseConverter::inputCheck()
 {
+    int dotCount = 0;
     int i = 0;
     if (input[0] == '-') {
         if (input.length() > 1) i = 1;
@@ -11,8 +28,17 @@ bool baseConverter::inputCheck()
     
     for ( i; i < input.length(); i++) {
         if ((input[i] >= '0' && input[i] <= '9') ||
-            (input[i] >= 'A' && input[i] <= 'Z'))
+            (input[i] >= 'A' && input[i] <= 'Z') ||
+            dotCount <=1)
+        {
+            if (dotCount == 2) return false;
+            if (input[i] == '.')
+            {
+                dotCount++;
+            }
             continue;
+        }
+            
         else return false;
     }
     return true;
@@ -27,13 +53,20 @@ bool baseConverter::baseCheck()
     return true;
 }
 
-long long int baseConverter::toDecimal()
+float baseConverter::toDecimal()
 {
     int i = 0;
     if (input[0] == '-') i = 1;
-    long long int sum = 0;
-    for (i ; i < input.length(); i++) {
-        sum += getNum(input[i]) * pow(base, input.length() - i - 1);
+    float sum = 0;
+    int length = input.length();
+    int dotIndex = isRealNumber();          // index của dấu '.'
+
+    for (i ; i < dotIndex; i++) {
+        sum += getNum(input[i]) * pow(base, dotIndex - i - 1);      // xử lý trước dấu .
+    }
+    for (i = dotIndex + 1; i < length; i++)
+    {
+        sum += getNum(input[i]) * pow(base, dotIndex - i);          // xử lý sau dấu chấm
     }
     return sum;
 }
@@ -71,21 +104,24 @@ int baseConverter::getNum(char ch)
 
 string baseConverter::DecimalToBase(int base)
 {
-   
-    long long int dec = this->toDecimal();
+    int countAfterDot = 0;
+    float dec = this->toDecimal();
+    float temp = mod(dec, 1);           // biến tạm giữ phần số thực
+    
+
     string res = "";
     while (dec > 0) {
-        res = getChar(dec % base) + res;
-        dec = dec / base;
-    }
-    
-    if (base == 2) {
-        while (res.length() < 32) {
-            res = '0' + res;
-        }
+        res = getChar(mod(dec, base)) + res;
+        dec =(int)(dec / base);
     }
     if (input[0] == '-') res = '-' + res;
-   
+    if (temp > 0) res += '.';
+    while (temp != 0 && countAfterDot <=5) {
+        temp = temp * base;
+        res += getChar((int)temp);
+        temp = mod(temp, 1);
+        countAfterDot++;    
+    }
     this->base = base;
     this->input = res;
     return res;

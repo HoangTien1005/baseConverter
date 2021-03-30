@@ -1,6 +1,9 @@
 ﻿  baseConverter.cpp
-C:\dev\baseConverter\baseConverter\baseConverter.cpp(12,16): warning C4018: '<': signed/unsigned mismatch
-C:\dev\baseConverter\baseConverter\baseConverter.cpp(24,23): warning C4018: '<': signed/unsigned mismatch
-C:\dev\baseConverter\baseConverter\baseConverter.cpp(35,16): warning C4018: '<': signed/unsigned mismatch
-C:\dev\baseConverter\baseConverter\baseConverter.cpp(36,68): warning C4244: '+=': conversion from 'double' to '__int64', possible loss of data
+C:\dev\baseConverter\baseConverter\baseConverter.cpp(13,20): warning C4018: '<': signed/unsigned mismatch
+C:\dev\baseConverter\baseConverter\baseConverter.cpp(29,16): warning C4018: '<': signed/unsigned mismatch
+C:\dev\baseConverter\baseConverter\baseConverter.cpp(50,23): warning C4018: '<': signed/unsigned mismatch
+C:\dev\baseConverter\baseConverter\baseConverter.cpp(65,62): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+C:\dev\baseConverter\baseConverter\baseConverter.cpp(69,58): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+C:\dev\baseConverter\baseConverter\baseConverter.cpp(114,26): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\dev\baseConverter\baseConverter\baseConverter.cpp(115,24): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
   baseConverter.vcxproj -> C:\dev\baseConverter\Debug\baseConverter.exe

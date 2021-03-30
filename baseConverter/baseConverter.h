@@ -12,9 +12,11 @@ private:
 	string input = "";						// chuỗi ng dùng nhập 
 	int base = 0;
 
+	float mod(float n, int m);			//lấy phần thập phân
+	int isRealNumber();					// trả về index của dấu '.'
 	bool inputCheck();					// kiểm tra định dạng chuỗi
 	bool baseCheck();					// kiểm tra định dạng số
-	long long int toDecimal();			// trung gian qua thập phân
+	float toDecimal();			// trung gian qua thập phân
 	char getChar(int number);			// chuyển số sang ký tự 
 	int getNum(char ch);				// chuyển ký tự sang số
 	
