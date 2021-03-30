@@ -14,10 +14,10 @@ private:
 
 	bool inputCheck();					// kiểm tra định dạng chuỗi
 	bool baseCheck();					// kiểm tra định dạng số
-	int toDecimal();					// trung gian qua thập phân
+	long long int toDecimal();			// trung gian qua thập phân
 	char getChar(int number);			// chuyển số sang ký tự 
 	int getNum(char ch);				// chuyển ký tự sang số
-	void flipBit(string& seq);			// biểu diễn số âm hệ nhị phân ( bù 1 )
+	
 	
 
 public:

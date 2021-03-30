@@ -7,7 +7,10 @@ int main()
 	
 	baseConverter bC;
 	bC.nhap();
-	bC.DecimalToBase(2);
+	int base;
+	cout << "nhap co so can chuyen: ";
+	cin >> base;
+	bC.DecimalToBase(base);
 	bC.xuat();
 	return 0;
 }

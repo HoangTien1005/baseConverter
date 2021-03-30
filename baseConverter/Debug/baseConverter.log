@@ -1,2 +1,6 @@
-﻿  main.cpp
+﻿  baseConverter.cpp
+C:\dev\baseConverter\baseConverter\baseConverter.cpp(12,16): warning C4018: '<': signed/unsigned mismatch
+C:\dev\baseConverter\baseConverter\baseConverter.cpp(24,23): warning C4018: '<': signed/unsigned mismatch
+C:\dev\baseConverter\baseConverter\baseConverter.cpp(35,16): warning C4018: '<': signed/unsigned mismatch
+C:\dev\baseConverter\baseConverter\baseConverter.cpp(36,68): warning C4244: '+=': conversion from 'double' to '__int64', possible loss of data
   baseConverter.vcxproj -> C:\dev\baseConverter\Debug\baseConverter.exe

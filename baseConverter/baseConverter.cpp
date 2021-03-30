@@ -27,24 +27,15 @@ bool baseConverter::baseCheck()
     return true;
 }
 
-int baseConverter::toDecimal()
+long long int baseConverter::toDecimal()
 {
     int i = 0;
     if (input[0] == '-') i = 1;
-    int sum = 0;
+    long long int sum = 0;
     for (i ; i < input.length(); i++) {
         sum += getNum(input[i]) * pow(base, input.length() - i - 1);
     }
     return sum;
-}
-
-void baseConverter::flipBit(string& seq)
-{
-    
-    for (int i = 0; i < seq.length(); i++) {
-        if (seq[i] == '0') seq[i] = '1';
-        else seq[i] = '0';
-    }
 }
 
 void baseConverter::nhap()
@@ -81,7 +72,7 @@ int baseConverter::getNum(char ch)
 string baseConverter::DecimalToBase(int base)
 {
    
-    int dec = this->toDecimal();
+    long long int dec = this->toDecimal();
     string res = "";
     while (dec > 0) {
         res = getChar(dec % base) + res;
@@ -93,11 +84,8 @@ string baseConverter::DecimalToBase(int base)
             res = '0' + res;
         }
     }
-    if (input[0] == '-') {
-        if (base == 2) flipBit(res);
-        else res = '-' + res;
-    }
-
+    if (input[0] == '-') res = '-' + res;
+   
     this->base = base;
     this->input = res;
     return res;
